@@ -1,5 +1,9 @@
 package com.redhat.simple.calculator;
 
+import static com.redhat.simple.calculator.AdvancedCalculator.HIGH_DISCOUNT_AMOUNT;
+import static com.redhat.simple.calculator.AdvancedCalculator.LOW_DISCOUNT_AMOUNT;
+import static com.redhat.simple.calculator.AdvancedCalculator.MID_DISCOUNT_AMOUNT;
+import static com.redhat.simple.calculator.AdvancedCalculator.VIP_DISCOUNT_AMOUNT;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -56,42 +60,42 @@ class AdvancedCalculatorTest {
 
     @Test
     void lowDiscountOnLowPurchaseAndBusiness() {
-        assertEquals(AdvancedCalculator.LOW_DISCOUNT_AMOUNT, calculator.discount(50, 1, true));
+        assertEquals(LOW_DISCOUNT_AMOUNT, calculator.discount(50, 1, true));
     }
 
     @Test
     void vipDiscountOnHighPurchaseAndBusiness() {
-        assertEquals(AdvancedCalculator.VIP_DISCOUNT_AMOUNT, calculator.discount(5000, 1, true));
+        assertEquals(VIP_DISCOUNT_AMOUNT, calculator.discount(5000, 1, true));
     }
 
     @Test
     void midDiscountOnLowPurchaseNoBusinessAndGoldCustomer() {
-        assertEquals(AdvancedCalculator.MID_DISCOUNT_AMOUNT, calculator.discount(50, 4, false));
+        assertEquals(MID_DISCOUNT_AMOUNT, calculator.discount(50, 4, false));
     }
 
     @Test
     void lowDiscountOnLowPurchaseNoBusinessAndNoGoldCustomer() {
-        assertEquals(AdvancedCalculator.LOW_DISCOUNT_AMOUNT, calculator.discount(50, 1, false));
+        assertEquals(LOW_DISCOUNT_AMOUNT, calculator.discount(50, 1, false));
     }
 
     @Test
     void lowDiscountOnHighPurchaseNoBusinessAndBronzeCustomer() {
-        assertEquals(AdvancedCalculator.LOW_DISCOUNT_AMOUNT, calculator.discount(5000, 1, false));
+        assertEquals(LOW_DISCOUNT_AMOUNT, calculator.discount(5000, 1, false));
     }
 
     @Test
     void midDiscountOnHighPurchaseNoBusinessAndSilverCustomer() {
-        assertEquals(AdvancedCalculator.MID_DISCOUNT_AMOUNT, calculator.discount(5000, 2, false));
+        assertEquals(MID_DISCOUNT_AMOUNT, calculator.discount(5000, 2, false));
     }
 
     @Test
     void highDiscountOnHighPurchaseNoBusinessAndGoldCustomer() {
-        assertEquals(AdvancedCalculator.HIGH_DISCOUNT_AMOUNT, calculator.discount(5000, 3, false));
+        assertEquals(HIGH_DISCOUNT_AMOUNT, calculator.discount(5000, 3, false));
     }
 
     @Test
     void vipDiscountOnHighPurchaseNoBusiness() {
-        assertEquals(AdvancedCalculator.VIP_DISCOUNT_AMOUNT, calculator.discount(5000, 4, false));
+        assertEquals(VIP_DISCOUNT_AMOUNT, calculator.discount(5000, 4, false));
     }
 
     @Test

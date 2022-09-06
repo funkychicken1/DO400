@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import javax.inject.Inject;
 import javax.ws.rs.WebApplicationException;
 
-import com.redhat.training.service.SolverService;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import com.redhat.training.service.SolverService;
 
 import io.quarkus.test.junit.QuarkusTest;
 
@@ -30,6 +30,11 @@ public class SolverTest {
     }
 
     @Test
+    public void solve_multiply() {
+        assertEquals(solverService.solve("5*3"), 15);
+    }
+
+    @Test
     public void solve_substract() {
         assertEquals(solverService.solve("5-3"), 2);
     }
@@ -40,8 +45,18 @@ public class SolverTest {
     }
 
     @Test
+    public void solve_multiply_composition() {
+        assertEquals(solverService.solve("20*5*3"), 300);
+    }
+
+    @Test
     public void solve_addition_overprioritize_substraction() {
         assertEquals(solverService.solve("20-5+3+2"), 10);
+    }
+
+    @Test
+    public void solve_multiplication_overprioritize_substraction() {
+        assertEquals(solverService.solve("20*5+3+2"), 105);
     }
 
     @Test

@@ -3,10 +3,10 @@ package com.redhat.training;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
-import com.redhat.training.service.SolverService;
-
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import com.redhat.training.service.SolverService;
 
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
@@ -36,8 +36,18 @@ public class SolverIT {
     }
 
     @Test
+    public void solve_multiply() {
+        expectEquationSolution("4*2","8.0");
+    }
+
+    @Test
     public void solve_composed() {
         expectEquationSolution("4+2-1","5.0");
+    }
+
+    @Test
+    public void solve_all_composed() {
+        expectEquationSolution("5*4+2-1","21.0");
     }
 
     @Test

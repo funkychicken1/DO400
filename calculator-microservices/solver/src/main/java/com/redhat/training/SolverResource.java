@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SolverResource implements SolverService {
+
     final Logger log = LoggerFactory.getLogger(SolverResource.class);
 
     @Inject
