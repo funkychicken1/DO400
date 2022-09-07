@@ -1,22 +1,24 @@
 pipeline {
    agent {
-      node { label 'nodejs' }
-      stages {
-         stage ('Checkout') {
-	    steps {
-               git branch: 'main',
-                   url: 'https://github.com/funkychicken1/DO400.git' 
-            } 
+      node { 
+         label 'nodejs' 
+      }
+   }
+   stages {
+      stage ('Checkout') {
+         steps {
+            git branch: 'main',
+                url: 'https://github.com/funkychicken1/DO400.git' 
+         } 
+      }
+      stage ('Backend Tests') {
+         steps {
+            sh 'node ./backend/test.js'
          }
-         stage ('Backend Tests') {
-            steps {
-               sh 'node ./backend/test.js'
-            }
-         }
-         stage ('Frontend Tests') {
-            steps {
-               sh 'node ./frontend/test.js'
-	    }
+      }
+      stage ('Frontend Tests') {
+         steps {
+            sh 'node ./frontend/test.js'
          }
       }
    }
