@@ -1,8 +1,0 @@
-#Thu Sep 01 09:18:39 EDT 2022
-configuration*?=872BB3F60731A3D58DA8BEAAB127718B907495DB
-/home/chris/Desktop/DO400/DO400-apps/quality-checks/src/main/resources/application.properties=1661979992264
-module-resource*?\:checkstyle-xpath-suppressions.xml=EEE97CD02046A4B401FE9C7EC445906737F68345
-module-resource*?\:checkstyle-suppressions.xml=D6B75E554F0A2517B56945F619E145A19686F00F
-/home/chris/Desktop/DO400/DO400-apps/quality-checks/src/main/java/com/redhat/simple/calculator/AdvancedCalculator.java=1661990141014
-/home/chris/Desktop/DO400/DO400-apps/quality-checks/src/main/java/com/redhat/simple/calculator/Calculator.java=1661994088126
-/home/chris/Desktop/DO400/DO400-apps/quality-checks/src/main/java/com/redhat/simple/calculator/BasicCalculator.java=1662038311959

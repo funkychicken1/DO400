@@ -1,6 +1,0 @@
-.git
-.gitignore
-.eslintrc.json
-node_modules/
-test/
-*.md
