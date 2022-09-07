@@ -3,6 +3,9 @@ pipeline {
       node { 
          label 'nodejs' 
       }
+      parameters {
+         booleanParam(name: "RUN_FRONTEND_TESTS", defaultValue: true)
+      }
    }
    stages {
       stage ('Checkout') {
@@ -11,14 +14,18 @@ pipeline {
                 url: 'https://github.com/funkychicken1/DO400.git' 
          } 
       }
-      stage ('Backend Tests') {
-         steps {
-            sh 'node ./pipelines-control/backend/test.js'
-         }
-      }
-      stage ('Frontend Tests') {
-         steps {
-            sh 'node ./pipelines-control/frontend/test.js'
+      stage ('Run Tests') {
+         parallel {
+            stage ('Backend Tests') {
+               steps {
+                  sh 'node ./pipelines-control/backend/test.js'
+               }
+            }
+            stage ('Frontend Tests') {
+               steps {
+                  sh 'node ./pipelines-control/frontend/test.js'
+               }
+            }
          }
       }
    }
